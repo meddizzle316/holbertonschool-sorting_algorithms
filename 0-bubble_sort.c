@@ -6,12 +6,14 @@
  *
  * Return: always void
  */
-void bubble_sort(int *array, size_t size)
+void bubble_sort(int *array, size_t given_size)
 {
 	int temp;
 	int i;
 	int j;
+	int size;
 
+	size = (int)given_size;
 	for (i = 0; i < size - 1; i++)
 	{
 		for (j = 0; j < size - i - 1; j++)
