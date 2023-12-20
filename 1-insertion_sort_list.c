@@ -35,7 +35,7 @@ void insertion_sort_list(listint_t **list)
 			has_swapped = 1;
 			j--;
 		}
-		if (j < 0)
+		if (j <= 0)
 		{
 			*list = current;
 		}
