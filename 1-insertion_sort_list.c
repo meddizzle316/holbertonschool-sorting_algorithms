@@ -7,7 +7,7 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	int i, temp, has_swapped, j;
+	int i, temp, j;
 	listint_t *current, *back, *next, *prev;
 	
 	if (*list == NULL)
@@ -18,7 +18,6 @@ void insertion_sort_list(listint_t **list)
 		j = i - 1;
 		temp = current->n;
 		back = current->prev;
-		has_swapped = 0;
 		while (j >= 0 && back != NULL && back->n > temp)
 		{
 			if (back->next->next != NULL)
@@ -32,14 +31,20 @@ void insertion_sort_list(listint_t **list)
 			back->prev = back->next;
 			back->next = next;
 			back = prev;
-			has_swapped = 1;
+			/* has_swapped = 1; */
 			j--;
+			if (j <= 0)
+				*list = current;
+			print_list(*list);
 		}
+		/**
+		 *
 		if (j <= 0)
 		{
 			*list = current;
 		}
 		if (has_swapped == 1)
 			print_list(*list);
+		*/
 	}
 }
