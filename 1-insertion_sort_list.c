@@ -10,8 +10,8 @@ void insertion_sort_list(listint_t **list)
 	int i, temp, j;
 	listint_t *current, *back, *next, *prev;
 	
-	if (*list == NULL)
-		return;
+	if (*list == NULL || list == NULL)
+		exit(1);
 	current = (*list)->next;
 	for (i = 1; current != NULL; i++, current = current->next)
 	{
