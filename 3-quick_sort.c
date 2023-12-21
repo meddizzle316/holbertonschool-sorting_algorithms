@@ -3,16 +3,21 @@
  * swap - function that swaps array values
  * @x: first value
  * @y: second value
+ * @size: size for print function
  *
  * Return: always void
  */
-void swap(int *x, int *y)
+void swap(int *x, int *y, size_t size, int *array)
 {
 	int temp;
+	int check;
 
 	temp = *x;
+	check = *y;
 	*x = *y;
 	*y = temp;
+	if (temp != check)
+		print_array(array, size);
 }
 
 
@@ -36,15 +41,19 @@ int partition(int *array, int low, int high, size_t size)
 	{
 		if (array[j] <= pivot_value)
 		{
-			swap(&array[i], &array[j]);
+			swap(&array[i], &array[j], size, array);
 			i++;
-			if (array[i] < array[j] || array[i] > array[j])
+			/** 
+			 * if (array[i] < array[j] || array[i] > array[j])
 				print_array(array, size);
+			*/
 		}
 	}
-	swap(&array[i], &array[high]);
-	if (array[i] < array[high] || array[i] > array[high])
+	swap(&array[i], &array[high], size, array);
+	/** 
+	 * if (array[i] < array[high] || array[i] > array[high])
 		print_array(array, size);
+	*/
 	return (i);
 }
 
