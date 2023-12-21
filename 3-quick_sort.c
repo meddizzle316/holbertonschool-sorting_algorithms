@@ -4,6 +4,7 @@
  * @x: first value
  * @y: second value
  * @size: size for print function
+ * @array: array for print function
  *
  * Return: always void
  */
@@ -43,17 +44,9 @@ int partition(int *array, int low, int high, size_t size)
 		{
 			swap(&array[i], &array[j], size, array);
 			i++;
-			/** 
-			 * if (array[i] < array[j] || array[i] > array[j])
-				print_array(array, size);
-			*/
 		}
 	}
 	swap(&array[i], &array[high], size, array);
-	/** 
-	 * if (array[i] < array[high] || array[i] > array[high])
-		print_array(array, size);
-	*/
 	return (i);
 }
 
