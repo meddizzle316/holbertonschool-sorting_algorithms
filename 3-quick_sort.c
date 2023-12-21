@@ -38,11 +38,13 @@ int partition(int *array, int low, int high, size_t size)
 		{
 			swap(&array[i], &array[j]);
 			i++;
-			print_array(array, size);
+			if (array[i] < array[j] || array[i] > array[j])
+				print_array(array, size);
 		}
 	}
 	swap(&array[i], &array[high]);
-	print_array(array, size);
+	if (array[i] < array[high] || array[i] > array[high])
+		print_array(array, size);
 	return (i);
 }
 
